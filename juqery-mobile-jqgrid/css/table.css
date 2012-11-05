@@ -12,6 +12,14 @@
     /* hide priority2 and priority3 columns */
     .priority2 { display: none; }
     .priority3 { display: none; }
+	div.label,div.labeltitle {display:block;border-bottom: 1px solid #CECECE;}
+	span.data,span.label { display: inline-block;padding: 2px;}
+	span.label{background-color: #ECECEC;font-weight: bold;width: 28%;}	
+	div.label:last-child{margin-bottom:10px;}
+	div.ui-jqgrid-hbox{display:none;}
+	td{display:none;}
+	td:first-child{display:table-cell;}
+	.ui-jqgrid .ui-jqgrid-bdiv{overflow:visible;}
 }
 
 /* -----------------------------------------------------------------------------

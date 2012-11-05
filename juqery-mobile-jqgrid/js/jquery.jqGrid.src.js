@@ -756,7 +756,7 @@ $.fn.jqGrid = function( pin ) {
 			groupingView : {groupField:[],groupOrder:[], groupText:[],groupColumnShow:[],groupSummary:[], showSummaryOnHide: false, sortitems:[], sortnames:[], summary:[],summaryval:[], plusicon: 'ui-icon-circlesmall-plus', minusicon: 'ui-icon-circlesmall-minus'},
 			ignoreCase : false,
 			cmTemplate : {},
-			idPrefix : ""
+			idPrefix : ""			
 		}, $.jgrid.defaults, pin || {});
 		var ts= this, grid={
 			headers:[],
@@ -1005,6 +1005,7 @@ $.fn.jqGrid = function( pin ) {
 		},
 		formatter = function (rowId, cellval , colpos, rwdat, _act){
 			var cm = ts.p.colModel[colpos],v;
+			
 			if(typeof cm.formatter !== 'undefined') {
 				var opts= {rowId: rowId, colModel:cm, gid:ts.p.id, pos:colpos };
 				if($.isFunction( cm.formatter ) ) {
@@ -1016,6 +1017,17 @@ $.fn.jqGrid = function( pin ) {
 				}
 			} else {
 				v = cellVal(cellval);
+			}
+			/*Code to add the data in raw format for low resolution screens*/
+			if(colpos == 0){
+				v= "<div class='labeltitle'><span class='label'>"+ts.p.colNames[colpos]+": </span><span class='data'>"+v+"</span></div>";
+				var k,i=0;
+				for(k in rwdat) {
+					if(i!=0){
+						v += "<div class='label'><span class='label'>"+ts.p.colNames[i]+": </span><span class='data'>"+rwdat[k]+"</span></div>";
+					}
+					++i;
+				}
 			}
 			return v;
 		},
