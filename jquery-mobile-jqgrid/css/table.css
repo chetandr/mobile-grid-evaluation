@@ -12,6 +12,8 @@
     /* hide priority2 and priority3 columns */
     .priority2 { display: none; }
     .priority3 { display: none; }
+    .notimp,#positions-table_symbol,#positions-table_quantity,#positions-table_lastTrade,
+    #positions-table_pricePaid,#positions-table_totalCost {display:none}
 
 }
 

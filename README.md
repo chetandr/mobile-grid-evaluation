@@ -150,13 +150,13 @@ Results (Reqirements 1-6)
             <td>jQuery Mobile</td>
             <td>jqGrid</td>
             <td>Y</td>
-            <td>N</td>
-            <td>N</td>
+            <td>Y</td>
+            <td>Y</td>
             <td>Y</td>
             <td>N</td>
             <td>Y</td>
-            <td>???</td>
-            <td>On hold</td>
+            <td>Chetan Rane</td>
+            <td>In Progress</td>
             <td><a href="http://archfirst.org/examples/mobile-grid-evaluation/juqery-mobile-jqgrid" target="_blank">Run</a></td>
             <td>Needs work on look & feel as well as scrolling on mobile devices.</td>
         </tr>
