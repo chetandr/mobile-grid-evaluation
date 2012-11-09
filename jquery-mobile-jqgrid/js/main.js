@@ -11,34 +11,38 @@ $(document).ready(function() {
     // Render table
     var grid = $('#positions-table').jqGrid({
     	"hoverrows":true,
-		"viewrecords":true,
-		"jsonReader":{"repeatitems":false,"subgrid":{"repeatitems":false}},
-		"gridview":true,
-		"loadonce":true,
-		"url":"datav.json",
-		"scroll":1,
-		"autowidth":true,
-		"autoheight":true,
+		"viewrecords":true,		
+		"gridview":false,
+		"loadonce":true,		
+		"scroll":1,				
 		"rowNum":20,		
-		"height":600,
+		"height":400,
    	    "colNames":['Security','Symbol', 'Quantity', 'Last Trade','Market Value','Price Paid','Total Cost','Gain','Gain %'],   	    
    	    "colModel":[
    		    {name:'security',index:'security', width:327},
-   		    {name:'symbol',index:'symbol', width:82,classes:"notimp w82"},
-   		    {name:'quantity',index:'quantity', width:131,formatter:'integer',classes:"notimp w131"},
-   		    {name:'lastTrade',index:'lastTrade', width:131, align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp w131"},
-   		    {name:'marketValue',index:'marketValue', width:131, align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"w131"},		
-   		    {name:'pricePaid',index:'pricePaid', width:131,align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp w131"},		
-   		    {name:'totalCost',index:'totalCost', width:131, sortable:false,formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp w131"},
-   		    {name:'gain',index:'gain', width:131, sortable:false,formatter:'currency',formatoptions:{prefix: "$ "},classes:"golden w131"},		
-   		    {name:'gainPercent',index:'gainPercent', width:131, sortable:false,formatter:'number',classes:"golden w131"}		
+   		    {name:'symbol',index:'symbol', width:82,classes:"notimp"},
+   		    {name:'quantity',index:'quantity', width:131,formatter:'integer',classes:"notimp number"},
+   		    {name:'lastTrade',index:'lastTrade', width:131, align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp currency"},
+   		    {name:'marketValue',index:'marketValue', width:131, align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"currency"},		
+   		    {name:'pricePaid',index:'pricePaid', width:131,align:"right",formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp currency"},		
+   		    {name:'totalCost',index:'totalCost', width:131, sortable:false,formatter:'currency',formatoptions:{prefix: "$"},classes:"notimp currency"},
+   		    {name:'gain',index:'gain', width:131, sortable:false,formatter:'currency',formatoptions:{prefix: "$"},classes:"positive currency"},		
+   		    {name:'gainPercent',index:'gainPercent', width:131, sortable:false,formatter:'number',classes:"positive number"}		
    	    ],   	   
         "datatype": 'local',
         "data": positions,
         "rowNum": 10000, /* this is a hack to workaround jqGrid bug */
         onSelectRow: function(id){ 
         		    		 $('#selected-position').html($('tr#'+id+' td:first-child').html());
-   }				      
+   						},
+   		afterInsertRow:function(rowid,rowdata,rowelem) {
+   			if(rowdata['gain'] < 0) {
+   				$('#'+rowid+' td:nth-child(8)').addClass('negative');   				
+   			}
+   			if(rowdata['gainPercent'] < 0) {
+   				$('#'+rowid+' td:nth-child(9)').addClass('negative');   				
+   			}
+   		}				      
     });
 
 	
@@ -50,12 +54,7 @@ $(document).ready(function() {
     $(window).resize(displayWindowSize);
 
     // Show selection on click events
-    $('#positions-table tbody tr').click(function() {
-        var security = $(this).find('.security').html();
-        $('#selected-position').html(security);
-    });
-
-    // Fit table on resize events
+     // Fit table on resize events
     var headerHeight = $('#positions-header').outerHeight(true);
     var postionsSectionPadding = 30;
     var selectionInfoHeight = $('#selected-position').outerHeight(true);
@@ -68,7 +67,7 @@ $(document).ready(function() {
     function fitTable() {
         var winWidth = $(this).width();
         var winHeight = $(this).height();
-        $('#positions-table').setGridWidth(winWidth - 35, true);
+        //$('#positions-table').setGridWidth(winWidth - 35, true);
         $('#positions-table').setGridHeight(winHeight - fixedSectionsHeight);
     }
     $(window).resize(fitTable);

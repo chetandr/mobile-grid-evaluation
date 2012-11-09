@@ -1018,17 +1018,6 @@ $.fn.jqGrid = function( pin ) {
 			} else {
 				v = cellVal(cellval);
 			}
-			/*Code to add the data in raw format for low resolution screens*/
-			if(colpos == 0){
-				v= "<div class='labeltitle'><span class='label'>"+ts.p.colNames[colpos]+": </span><span class='data'>"+v+"</span></div>";
-				var k,i=0;
-				for(k in rwdat) {
-					if(i!=0){
-						v += "<div class='label'><span class='label'>"+ts.p.colNames[i]+": </span><span class='data'>"+rwdat[k]+"</span></div>";
-					}
-					++i;
-				}
-			}
 			return v;
 		},
 		addCell = function(rowId,cell,pos,irow, srvr) {
