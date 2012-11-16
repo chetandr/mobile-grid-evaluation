@@ -14,7 +14,10 @@
     font-weight: bold;
 }
 
-.currency,.number{
+.currency,.number,#positions-table_quantity,
+#positions-table_lastTrade,#positions-table_marketValue,
+#positions-table_pricePaid,#positions-table_totalCost,
+#positions-table_gain,#positions-table_gainPercent{
 	text-align:right;
 }
 
@@ -36,9 +39,6 @@
     #positions-table td {
         font-size: 16px;
         height: 44px;
-    }
-    #positions-table_symbol,#positions-table_lastTrade,#positions-table_marketValue,#positions-table_gain,.notimp{
-    	display:none;
     }
 }
 

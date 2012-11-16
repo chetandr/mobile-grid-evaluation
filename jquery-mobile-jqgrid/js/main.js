@@ -15,7 +15,7 @@ $(document).ready(function() {
 		"gridview":false,
 		"loadonce":true,		
 		"scroll":1,				
-		"rowNum":20,		
+		"rowNum":20,				
 		"height":400,
    	    "colNames":['Security','Symbol', 'Quantity', 'Last Trade','Market Value','Price Paid','Total Cost','Gain','Gain %'],   	    
    	    "colModel":[
@@ -50,6 +50,7 @@ $(document).ready(function() {
     function displayWindowSize() {
         var win = $(this);
         $('.window-size').html("(" + win.width() + ", " + win.height() + ")");
+       resizeGrid();
     }
     $(window).resize(displayWindowSize);
 
@@ -62,13 +63,22 @@ $(document).ready(function() {
     var fudgeFactor = 25; // don't know why this is needed!
     var fixedSectionsHeight =
         headerHeight + postionsSectionPadding + selectionInfoHeight + layoutInfoHeight + fudgeFactor;
-
+        
+	function resizeGrid(){
+		 var win = $(this);
+		if(win.width() <= 500) 
+        	grid.hideCol(['security','lastTrade','marketValue','pricePaid','gain']);
+        else 
+        	grid.showCol(['security','lastTrade','marketValue','pricePaid','gain']);
+        grid.setGridWidth(win.width() - 10);
+        grid.setGridHeight(win.height() - fixedSectionsHeight);
+	}
 
     function fitTable() {
         var winWidth = $(this).width();
         var winHeight = $(this).height();
-        //$('#positions-table').setGridWidth(winWidth - 35, true);
-        $('#positions-table').setGridHeight(winHeight - fixedSectionsHeight);
+        // resize the grid.
+        resizeGrid();
     }
     $(window).resize(fitTable);
 
