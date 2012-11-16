@@ -264,9 +264,9 @@ Results (Reqirements 7 - Scrolling Table Body)
             <td>6</td>
             <td>jQuery Mobile</td>
             <td>jqGrid</td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Y</td>
+            <td>Y</td>
+            <td>Y</td>
             <td></td>
             <td></td>
             <td></td>
