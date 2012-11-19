@@ -68,8 +68,14 @@ $(document).ready(function() {
 		 var win = $(this);
 		if(win.width() <= 500) 
         	grid.hideCol(['security','lastTrade','marketValue','pricePaid','gain']);
-        else 
-        	grid.showCol(['security','lastTrade','marketValue','pricePaid','gain']);
+        else {
+        	if(win.width() <= 900) {
+        		grid.showCol(['security','lastTrade','marketValue','pricePaid','gain']);
+        		grid.hideCol(['security','lastTrade','marketValue']);
+        	} else {
+        		grid.showCol(['security','lastTrade','marketValue','pricePaid','gain']);
+        	}
+        }
         grid.setGridWidth(win.width() - 10);
         grid.setGridHeight(win.height() - fixedSectionsHeight);
 	}
