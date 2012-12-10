@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, Verdana, Helvetica, sans-serif;
 	height:99%;
@@ -49,7 +48,11 @@ h1 {
 	background-color: #ff0;
 	line-height: 30px;
 	height: 30px;
+<<<<<<< HEAD
 	over-flow: hidden;
+=======
+	overflow: hidden;
+>>>>>>> Commit-3
 }
 
 
@@ -63,6 +66,7 @@ h1 {
 	font-weight: normal;
 }
 .ui-state-default.slick-header-column {
+<<<<<<< HEAD
 	background-color: gray;
 	color: #fff;
 }
@@ -71,6 +75,23 @@ h1 {
 .ui-header {
 	height: 42px;
 	over-flow: hidden;
+=======
+	background-image: none;
+	background-color: gray;
+	color: #fff;
+}
+.ui-body-c, .ui-overlay-c {
+    color: #333333;
+    text-shadow: none;
+}
+/* jquery mobile over writes */
+.ui-header {
+	height: 42px;
+	overflow: hidden;
+}
+.ui-widget {
+    font-size: 1em;
+>>>>>>> Commit-3
 }
 
 /* Modify */
@@ -82,4 +103,13 @@ h1 {
 .negative {
     color: #EF4623;
     font-weight: bold;
+<<<<<<< HEAD
+=======
+}
+.right-align {
+	text-align: right;
+}
+.pre-dollar:before {
+	content: "$";
+>>>>>>> Commit-3
 }
