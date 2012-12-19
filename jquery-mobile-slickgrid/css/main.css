@@ -45,53 +45,51 @@ h1 {
 	bottom: 0;
     font-size: 10px;
     margin-top: 10px;
-	background-color: #ff0;
 	line-height: 30px;
 	height: 30px;
-<<<<<<< HEAD
-	over-flow: hidden;
-=======
 	overflow: hidden;
->>>>>>> Commit-3
 }
 
 
 
 /* slick grid over writes */
+
 .slick-header-column, .slick-header-column.ui-state-default {
-	height: 32px;
-	line-height: 32px;
-}
-.slick-header-column.ui-state-default {
-	font-weight: normal;
-}
-.ui-state-default.slick-header-column {
-<<<<<<< HEAD
+	font-size: 13px;
+	font-weight: bold;
+	height: 30px !important;
+	line-height: 30px!important;
+	border-right:none !important;
+	background-image: none;
+	padding: 0 5px !important;
 	background-color: gray;
 	color: #fff;
+	text-align: center;
 }
 
-/* jquery mobile over writes */
-.ui-header {
-	height: 42px;
-	over-flow: hidden;
-=======
-	background-image: none;
-	background-color: gray;
-	color: #fff;
-}
+
 .ui-body-c, .ui-overlay-c {
     color: #333333;
     text-shadow: none;
 }
+.slick-cell{
+	border-right: none !important;
+	border-left: none !important;
+	height: 32px !important;
+	line-height: 32px;
+}
+
 /* jquery mobile over writes */
 .ui-header {
-	height: 42px;
+	height: 36px;
 	overflow: hidden;
 }
 .ui-widget {
-    font-size: 1em;
->>>>>>> Commit-3
+    font-size: 14px;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+.ui-header .ui-title, .ui-footer .ui-title {
+	margin: 10px 0;
 }
 
 /* Modify */
@@ -103,13 +101,28 @@ h1 {
 .negative {
     color: #EF4623;
     font-weight: bold;
-<<<<<<< HEAD
-=======
+}
+.cell-left-align {
+	text-align: left!important;
+}
+.cell-right-align {
+	text-align: right!important;
+}
+.cell-center-align {
+	text-align: center!important;
+}
+.column-symbol {
+	max-width: 80px;
 }
 .right-align {
 	text-align: right;
 }
+
 .pre-dollar:before {
 	content: "$";
->>>>>>> Commit-3
+}
+
+.center-align {
+	text-align: center;
+
 }
